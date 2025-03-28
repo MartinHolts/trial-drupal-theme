@@ -1,0 +1,13 @@
+<div class="latest-articles-view">
+	{{ title_prefix }}
+	{% if title %}
+		<header class="articles-header">
+			<h1>{{ title }}</h1>
+		</header>
+	{% endif %}
+	{{ title_suffix }}
+
+	<div class="articles-content">
+		{{ rows }}
+	</div>
+</div>

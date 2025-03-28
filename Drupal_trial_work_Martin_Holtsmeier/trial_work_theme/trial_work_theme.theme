@@ -1,0 +1,38 @@
+<?php
+function trial_work_theme_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+    // Check if the current route is the Latest Articles view.
+    $route_name = \Drupal::routeMatch()->getRouteName();
+    if ($route_name == 'view.latest_articles.page_1') {
+        $suggestions[] = 'page__latest_articles';
+    }
+    
+    // Optionally, you can handle the home page if it's a route.
+    if (\Drupal::service('path.matcher')->isFrontPage()) {
+        $suggestions[] = 'page__home';
+    }
+    
+    // For the About page, if it's not using a unique route, you might rely on node properties.
+    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+        if ($node instanceof \Drupal\node\NodeInterface) {
+            if ($node->getType() == 'page' && $node->getTitle() == 'About') {
+                $suggestions[] = 'page__about';
+            }
+        }
+    }
+}
+
+
+function trial_work_theme_preprocess_html(array &$variables) {
+    // Get the current user object.
+    $user = \Drupal::currentUser();
+    // Get all roles for the user.
+    $roles = $user->getRoles();
+
+    // Loop through each role and add a corresponding class to the body.
+    foreach ($roles as $role) {
+        // Clean the role string if necessary (e.g., replace underscores).
+        $clean_role = str_replace('_', '-', $role);
+        $variables['attributes']['class'][] = 'role-' . $clean_role;
+    }
+}
+?>

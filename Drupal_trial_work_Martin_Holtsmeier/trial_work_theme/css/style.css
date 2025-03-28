@@ -1,0 +1,519 @@
+/* ======================
+   GLOBAL STYLES
+   ====================== */
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+/* Adjust padding for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+}
+
+
+/* ======================
+   HEADER STYLES
+   ====================== */
+.custom-header {
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    background: #ffffff;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+}
+
+.header-region {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+/* Main navigation */
+.primary-nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu--level-1 {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: 2rem;
+}
+
+.menu__link--level-1 {
+    position: relative;
+    padding: 0.5rem 0;
+    outline: none !important;
+    color: #4a5568;
+    transition: color 0.2s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.menu__link--level-1:focus-visible {
+    border-radius: 2px;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+}
+
+.menu__link--level-1:hover {
+    color: #1a202c;
+}
+
+/* Active state */
+.menu__link--active-trail {
+    color: #1a202c;
+    font-weight: 600;
+}
+
+/* Animated underline */
+.menu__link--level-1::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    content: '';
+    transition: width 0.3s ease;
+}
+
+.menu__link--level-1:hover::after,
+.menu__link--active-trail::after {
+    width: 100%;
+}
+
+/* Mobile menu */
+@media (max-width: 768px) {
+    .custom-header {
+        padding: 1rem 0;
+    }
+
+    .header-region {
+        padding: 0 15px;
+    }
+
+    .menu--level-1 {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .menu__item--level-1 {
+        border-bottom: 1px solid #f8f9fa;
+    }
+
+    .menu__link--level-1 {
+        display: block;
+        padding: 0.75rem 0;
+    }
+
+    .menu__link--level-1::after {
+        display: none;
+    }
+}
+
+/* Small screen adjustment */
+@media (max-width: 480px) {
+    .menu__link--level-1 {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ======================
+   MODAL STYLES
+   ====================== */
+.modal {
+    /* Hidden by default */
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    /* Sits on top */
+    left: 0;
+    display: none;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black overlay with transparency */
+}
+
+/* Modal content box */
+.modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 500px;
+    /* 10% from the top and centered */
+    padding: 20px;
+    margin: 10% auto;
+    border: 1px solid #888;
+    background-color: #fefefe;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    float: right;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.latest-articles-view {
+    max-width: 800px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.latest-articles-view h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.articles-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+
+/* ======================
+   HOME STYLES
+   ====================== */
+.home-main {
+    padding: 40px 20px;
+    background: #fafafa;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Home header styling */
+.home-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.home-header h1 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 2.8rem;
+}
+
+.home-header .tagline {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+}
+
+/* Home content styling */
+.home-content p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Features section styling */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+.feature {
+    flex: 0 0 30%;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    text-align: center;
+}
+
+.feature h2 {
+    margin-bottom: 10px;
+    color: #34495e;
+    font-size: 1.5rem;
+}
+
+.feature p {
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Button styling */
+.btn.learn-more {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 4px;
+    color: #fff;
+    background: #2c3e50;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+
+.btn.learn-more:hover {
+    background: #1a242f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .features {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .feature {
+        flex: 1 0 100%;
+        max-width: 400px;
+    }
+}
+
+
+/* ======================
+   ABOUT STYLES
+   ====================== */
+.page-wrapper.about-page {
+    color: #333;
+    background: #fff;
+}
+
+.about-main {
+    padding: 40px 20px;
+    background: #f7f7f7;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Header styling */
+.about-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.about-header h1 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 2.5rem;
+}
+
+.about-header .tagline {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+}
+
+/* Content section styling */
+.about-content h2 {
+    margin-top: 30px;
+    color: #34495e;
+    font-size: 1.8rem;
+}
+
+.about-content p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .about-header h1 {
+        font-size: 2rem;
+    }
+
+    .about-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-main {
+        padding: 20px 10px;
+    }
+}
+
+
+/* ======================
+   ARTICLES STYLES
+   ====================== */
+.articles-page main {
+    padding: 40px 20px;
+    background: #f7f7f7;
+}
+
+.latest-articles-view {
+    max-width: 1000px;
+    padding: 20px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Header styling */
+.articles-header h1 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+/* Style the table generated by the view */
+.articles-content table {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 8px;
+    background: #fff;
+    border-collapse: collapse;
+}
+
+.articles-content th,
+.articles-content td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.articles-content th {
+    color: #333;
+    background: #f4f4f4;
+    text-align: center !important;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.articles-content tr h3 {
+    margin-top: 0;
+}
+
+.articles-content tr:hover {
+    background: #f9f9f9;
+}
+
+/* Improve image styling */
+.articles-content td img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.articles-content td img:hover {
+    transform: scale(1.05);
+}
+
+/* Make article title more readable */
+.articles-content td a {
+    color: #2c3e50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.articles-content td a:hover {
+    text-decoration: underline;
+}
+
+/* Ensure text in body column is readable */
+.articles-content .views-field-body p {
+    line-height: 1.5;
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .articles-content table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .articles-content th,
+    .articles-content td {
+        padding: 10px;
+    }
+}
+
+/* ======================
+   FOOTER STYLES
+   ====================== */
+
+.custom-footer {
+    /* Dark text for readability */
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+    /* Light, neutral background */
+    color: #333;
+    background: #f8f8f8;
+    text-align: center;
+    /* Subtle divider line */
+    font-size: 0.9rem;
+    font-weight: 300;
+    /* Lighter font weight for a modern look */
+}
+
+.custom-footer p {
+    line-height: 1.6;
+    margin: 0;
+}
+
+.custom-footer a {
+    border-bottom: 1px solid transparent;
+    color: #333;
+    transition: border-color 0.2s;
+    text-decoration: none;
+}
+
+.custom-footer a:hover {
+    border-bottom-color: #333;
+    /* Underline appears on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .custom-footer {
+        padding: 15px 0;
+        font-size: 0.8rem;
+    }
+}

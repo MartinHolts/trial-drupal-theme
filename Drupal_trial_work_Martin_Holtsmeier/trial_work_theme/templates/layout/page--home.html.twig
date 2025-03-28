@@ -1,0 +1,45 @@
+<div class="page-wrapper home-page">
+	{% include '@trial_work_theme/layout/header.html.twig' %}
+
+	<main role="main" class="home-main">
+		<div class="container">
+			<header class="home-header">
+				<h1>Welcome to Sunrise Café</h1>
+				<p class="tagline">Start your day with a smile and a perfect cup of coffee!</p>
+			</header>
+
+			<section class="home-content">
+				<p>
+					At Sunrise Café, every sunrise is a new beginning. Enjoy our freshly brewed coffee, delicious pastries, and a warm, inviting atmosphere.
+				</p>
+
+				<div class="features">
+					<div class="feature">
+						<h2>Fresh Ingredients</h2>
+						<p>We use only locally-sourced, organic ingredients in every dish and drink.</p>
+					</div>
+					<div class="feature">
+						<h2>Cozy Ambiance</h2>
+						<p>Our café is designed to be a relaxing haven, perfect for a casual meeting or a quiet moment alone.</p>
+					</div>
+					<div class="feature">
+						<h2>Friendly Service</h2>
+						<p>Our dedicated team is here to ensure you have a memorable experience every time you visit.</p>
+					</div>
+				</div>
+
+				<a href="{{ base_path }}about" class="btn learn-more">Learn More About Us</a>
+			</section>
+		</div>
+	</main>
+
+	<!-- Modal Markup -->
+	<div id="modal" class="modal">
+		<div class="modal-content">
+			<span id="close-modal" class="close">&times;</span>
+			<p>This is sample content for the modal window.</p>
+		</div>
+	</div>
+
+	{% include '@trial_work_theme/layout/footer.html.twig' %}
+</div>
